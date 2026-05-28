@@ -511,6 +511,9 @@
       section { padding: 24px 20px; }
       .two-col { grid-template-columns: 1fr; }
       table { font-size: 14px; }
+      th, td { display: block; width: 100%; }
+      th { border-bottom: 0; }
+      td { padding-top: 6px; }
       .speaker-title { font-size: 38px; }
       .profile-list { font-size: 16px; }
       .quote { font-size: 21px; }
@@ -524,72 +527,60 @@
       .speaker { break-inside: avoid; page-break-inside: avoid; }
     }
 
-    /* 모바일 표 가독성 개선: 9번/10번 표 포함 전체 표에 적용 */
+    .verse-box {
+      background: #f8f5ef;
+      border-left: 6px solid #b58b52;
+      padding: 24px;
+      margin: 28px 0 8px;
+      border-radius: 18px;
+      border-top: 1px solid rgba(139, 94, 52, 0.12);
+      border-right: 1px solid rgba(139, 94, 52, 0.12);
+      border-bottom: 1px solid rgba(139, 94, 52, 0.12);
+    }
+
+    .verse-box.soft {
+      background: #eef3ea;
+      border-left-color: #6f7f5f;
+      border-top-color: rgba(111,127,95,0.18);
+      border-right-color: rgba(111,127,95,0.18);
+      border-bottom-color: rgba(111,127,95,0.18);
+    }
+
+    .verse {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #4b3f35;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .verse span {
+      display: block;
+      margin-top: 10px;
+      font-size: 15px;
+      color: #7a6956;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .verse-message {
+      margin-top: 18px;
+      font-weight: 900;
+      color: #2f2f2f;
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
     @media (max-width: 760px) {
-      table {
-        border: 0;
-        background: transparent;
-        border-radius: 0;
-        overflow: visible;
+      .verse-box {
+        padding: 20px;
+        margin: 22px 0 8px;
       }
-
-      table tbody {
-        display: grid;
-        gap: 14px;
+      .verse {
+        font-size: 16px;
       }
-
-      table tr {
-        display: block;
-        background: #ffffff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 8px 20px rgba(64, 45, 24, 0.05);
-      }
-
-      table tr:first-child th {
-        background: #5b3b1f;
-        color: #ffffff;
-      }
-
-      table tr:first-child td {
-        background: #fffaf2;
-        color: var(--accent-deep);
-        font-weight: 800;
-      }
-
-      table th,
-      table td {
-        display: block;
-        width: 100%;
-        border-bottom: 0;
-        padding: 13px 15px;
-      }
-
-      table th {
-        background: #f4eadc;
-        color: var(--accent-deep);
-        border-left: 6px solid var(--accent);
-        border-bottom: 1px solid rgba(139, 94, 52, 0.14);
-        font-size: 14px;
-        font-weight: 900;
-      }
-
-      table td {
-        background: #f8fbf5;
-        color: #2b261f;
-        border-left: 6px solid var(--green);
-        padding-top: 13px;
-      }
-
-      table tr:nth-child(even) td {
-        background: #eef6ff;
-        border-left-color: var(--blue);
-      }
-
-      table tr:nth-child(odd) td {
-        background: #f8fbf5;
-        border-left-color: var(--green);
+      .verse-message {
+        font-size: 18px;
       }
     }
 
@@ -600,7 +591,8 @@
     <header>
       <div class="eyebrow">1차 준비회의 자료</div>
       <h1>영아·유치·유년·초등부<br>여름 연합수련회</h1>
-      
+      <div class="quote">"아이만 보내는 여름행사"가 아니라<br>
+        "부모와 자녀가 함께 하나님 앞에 서는 회복의 시간"</div>
           </header>
 
     <main>
@@ -627,16 +619,31 @@
           <div class="mini-card"><strong>가정예배 회복</strong>수련회 이후 가정 안에서 신앙 리듬이 이어지도록 연결합니다.</div>
           <div class="mini-card"><strong>공동체 회복</strong>부서별 사역을 넘어 다음세대 전체가 함께 세워지도록 합니다.</div>
         </div>
-      </section>
+
+              </section>
 
       <section class="green">
         <h2><span class="num">3</span>왜 지금 ‘가족 중심 연합수련회’인가</h2>
         <p>다음세대의 신앙은 이제 교회 프로그램만으로 지켜지기 어려운 시대가 되었습니다.</p>
         <p>이제는 단순히 “아이 프로그램”만으로는 부족합니다.</p>
         <p>아이들의 신앙은 교회에서만 만들어지지 않습니다. 가정 안에서 부모의 기도와 예배, 말과 태도를 통해 자라갑니다.</p>
+
+        <div class="verse-box soft">
+          <div class="verse">
+            “이는 네 속에 거짓이 없는 믿음이 있음을 생각함이라<br>
+            이 믿음은 먼저 네 외조모 로이스와 네 어머니 유니게 속에 있더니<br>
+            네 속에도 있는 줄을 확신하노라”
+            <span>(디모데후서 1:5)</span>
+          </div>
+
+          <div class="verse-message">
+            디모데의 믿음은 교회에서만 만들어진 것이 아니라,<br>
+            가정 안에서 이어진 믿음이었습니다.
+          </div>
+        </div>
+
         
-        <div class="quote vision-quote">아이만 보내는 여름행사가 아니라<br>
-        부모와 자녀가 함께 하나님 앞에 서는 회복의 시간</div>
+        
       </section>
 
       <section>
@@ -807,7 +814,7 @@
 
             <section class="highlight">
         <h2><span class="num">12</span>부탁드립니다</h2>
-        <div class="lead">
+        <div class="quote">
           <p>이번 수련회는 완벽한 행사를 만드는 것이 목표가 아닙니다.</p>
           <p>한 가정이라도 다시 예배의 자리로 돌아오고, <p></p>한 부모라도 자녀를 위해 다시 기도하게 되고, <p></p>한 아이라도 믿음의 공동체 안에서 사랑받고 있음을 느끼게 된다면, <p></p>그것만으로도 충분히 의미 있는 사역이라고 믿습니다.</p>
           <p>함께 기도해 주시고, 함께 지혜를 모아 주시고, 함께 다음세대를 세워가기를 부탁드립니다.</p>
