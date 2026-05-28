@@ -511,9 +511,6 @@
       section { padding: 24px 20px; }
       .two-col { grid-template-columns: 1fr; }
       table { font-size: 14px; }
-      th, td { display: block; width: 100%; }
-      th { border-bottom: 0; }
-      td { padding-top: 6px; }
       .speaker-title { font-size: 38px; }
       .profile-list { font-size: 16px; }
       .quote { font-size: 21px; }
@@ -526,6 +523,76 @@
       section { break-inside: avoid; page-break-inside: avoid; }
       .speaker { break-inside: avoid; page-break-inside: avoid; }
     }
+
+    /* 모바일 표 가독성 개선: 9번/10번 표 포함 전체 표에 적용 */
+    @media (max-width: 760px) {
+      table {
+        border: 0;
+        background: transparent;
+        border-radius: 0;
+        overflow: visible;
+      }
+
+      table tbody {
+        display: grid;
+        gap: 14px;
+      }
+
+      table tr {
+        display: block;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(64, 45, 24, 0.05);
+      }
+
+      table tr:first-child th {
+        background: #5b3b1f;
+        color: #ffffff;
+      }
+
+      table tr:first-child td {
+        background: #fffaf2;
+        color: var(--accent-deep);
+        font-weight: 800;
+      }
+
+      table th,
+      table td {
+        display: block;
+        width: 100%;
+        border-bottom: 0;
+        padding: 13px 15px;
+      }
+
+      table th {
+        background: #f4eadc;
+        color: var(--accent-deep);
+        border-left: 6px solid var(--accent);
+        border-bottom: 1px solid rgba(139, 94, 52, 0.14);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      table td {
+        background: #f8fbf5;
+        color: #2b261f;
+        border-left: 6px solid var(--green);
+        padding-top: 13px;
+      }
+
+      table tr:nth-child(even) td {
+        background: #eef6ff;
+        border-left-color: var(--blue);
+      }
+
+      table tr:nth-child(odd) td {
+        background: #f8fbf5;
+        border-left-color: var(--green);
+      }
+    }
+
   </style>
 </head>
 <body>
